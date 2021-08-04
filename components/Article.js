@@ -114,6 +114,7 @@ paragraphs[0].textContent = articleObejct('date');
 paragraphs[1].textContent = articleObejct('firstParagrpah');
 paragraphs[2].textContent = articleObejct('secondParagrpah');
 paragraphs[3].textContent = articleObejct('thirdParagrpah');
+span.textContent = '+';
 //*********************//
 
 //Placing everything inside of the div//
@@ -124,7 +125,16 @@ paragraphs.forEach((arrayItem) => {
 div.appendChild(span);
 //*********************//
 
+//Events//
+span.addEventListener('click', function(event){
+  div.classList.toggle('article-open');
+})
+//*********************//
+
+return div;
 }
+
+
 
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
