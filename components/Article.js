@@ -89,6 +89,76 @@ const data = [
   }
 ];
 
+function articleMaker(articleObject){
+
+//Making of elements//
+const div = document.createElement('div');
+const title = document.createElement('h2');
+let paragraphs = [];
+  for(let i=0; i<4; i++){
+    let paragraph = document.createElement('p');
+        paragraphs.push(paragraph);
+    }
+const span = document.createElement('span');
+//*********************//
+
+//Adding classes to my elements//
+div.classList.add('article');
+paragraphs[0].classList.add('date');
+span.classList.add('expandButton');
+//*********************//
+
+//Populating text content//
+title.textContent = articleObject['title'];
+paragraphs[0].textContent = articleObject['date'];
+paragraphs[1].textContent = articleObject['firstParagraph'];
+paragraphs[2].textContent = articleObject['secondParagraph'];
+paragraphs[3].textContent = articleObject['thirdParagraph'];
+span.textContent = '+';
+//*********************//
+
+//Placing everything inside of the div//
+div.appendChild(title);
+paragraphs.forEach((arrayItem) => {
+  div.appendChild(arrayItem);
+});
+div.appendChild(span);
+//*********************//
+
+//Events//
+span.addEventListener('click', function(event){
+  div.classList.toggle('article-open');
+})
+//*********************//
+
+return div;
+}
+
+//Grabbing the articles div from the html file//
+let articles = document.querySelector('.articles');
+//*********************//
+
+//creating new object into our data array//
+const newObject = {
+  title: 'Allison is born',
+  date:'November 8th, 1991',
+  firstParagraph:'We now know that her parents had sex roughly 9 months ago',
+  secondParagraph: 'They probably enjoyed it',
+  thirdParagraph:'Allison does not like talking about it though. So, we she comes over here, we need to change the subject.'
+}
+
+data.push(newObject);
+//*********************//
+
+//Looping over our data array//
+data.forEach((arrayItem) => {
+  articles.appendChild(articleMaker(arrayItem));
+})
+//*********************//
+
+
+
+
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
