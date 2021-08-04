@@ -104,16 +104,16 @@ const span = document.createElement('span');
 
 //Adding classes to my elements//
 div.classList.add('article');
-paragrpahs[0].classList.add('date');
+paragraphs[0].classList.add('date');
 span.classList.add('expandButton');
 //*********************//
 
 //Populating text content//
-title.textContent = articleObject('title');
-paragraphs[0].textContent = articleObejct('date');
-paragraphs[1].textContent = articleObejct('firstParagrpah');
-paragraphs[2].textContent = articleObejct('secondParagrpah');
-paragraphs[3].textContent = articleObejct('thirdParagrpah');
+title.textContent = articleObject['title'];
+paragraphs[0].textContent = articleObject['date'];
+paragraphs[1].textContent = articleObject['firstParagraph'];
+paragraphs[2].textContent = articleObject['secondParagraph'];
+paragraphs[3].textContent = articleObject['thirdParagraph'];
 span.textContent = '+';
 //*********************//
 
@@ -133,6 +133,16 @@ span.addEventListener('click', function(event){
 
 return div;
 }
+
+//Grabbing the articles div from the html file//
+let articles = document.querySelector('.articles');
+//*********************//
+
+//Looping over our data array//
+data.forEach((arrayItem) => {
+  articles.appendChild(articleMaker(arrayItem));
+})
+//*********************//
 
 
 
