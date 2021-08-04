@@ -138,11 +138,24 @@ return div;
 let articles = document.querySelector('.articles');
 //*********************//
 
+//creating new object into our data array//
+const newObject = {
+  title: 'Allison is born',
+  date:'November 8th, 1991',
+  firstParagraph:'We now know that her parents had sex roughly 9 months ago',
+  secondParagraph: 'They probably enjoyed it',
+  thirdParagraph:'Allison does not like talking about it though. So, we she comes over here, we need to change the subject.'
+}
+
+data.push(newObject);
+//*********************//
+
 //Looping over our data array//
 data.forEach((arrayItem) => {
   articles.appendChild(articleMaker(arrayItem));
 })
 //*********************//
+
 
 
 
